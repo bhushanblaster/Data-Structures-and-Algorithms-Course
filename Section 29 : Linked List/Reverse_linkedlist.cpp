@@ -1,3 +1,4 @@
+//iterative
 struct Node* reverseList(struct Node *head)
     {
         // return head of reversed list
@@ -20,4 +21,16 @@ struct Node* reverseList(struct Node *head)
             head = q;
             return head;
         }
+    }
+
+//recursive
+//Function to reverse a linked list.
+    struct Node* reverseList(struct Node *head)
+    {
+        if(!head || !head->next)
+          return head;
+        struct Node* rest = reverseList(head->next);
+        head->next->next = head;
+        head->next = NULL;
+        return rest;
     }
